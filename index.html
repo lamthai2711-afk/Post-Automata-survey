@@ -323,8 +323,8 @@
             <p><strong>Instructions:</strong> This final assessment evaluates your conceptual retention, algorithmic tracing, and analytical reasoning.</p>
             <ul class="list-disc list-inside text-xs text-slate-600 space-y-0.5">
               <li><strong>Closed-book:</strong> Do not consult external references, tools, or notes.</li>
-              <li>Estimated duration: ~20 minutes.</li>
-              <li>Parts A, B, and C are Multiple-Choice Diagnostic Questions. Parts D and E require detailed mathematical derivations.</li>
+              <li>Estimated duration: ~15 to 20 minutes.</li>
+              <li>All parts (A through E) are standardized Multiple-Choice Questions (MCQs). No written derivations required.</li>
             </ul>
           </div>
         </div>
@@ -615,119 +615,236 @@
           </div>
         </div>
 
-        <!-- PART D: GENERATIVE NEAR-TRANSFER TASK (CONSTRUCTED PROCEDURAL EXECUTION) -->
+        <!-- PART D: EXTENDED NEAR-TRANSFER MCQS (TRANSFORMED FROM G1) -->
         <div class="space-y-6">
           <div class="bg-slate-900 text-white p-3 rounded-lg flex justify-between items-center">
-            <h3 class="text-sm font-bold uppercase tracking-wider">Part D: Generative Near-Transfer Task (6.0 Points)</h3>
-            <span class="text-xs text-slate-300 font-mono">Constructed Execution</span>
+            <h3 class="text-sm font-bold uppercase tracking-wider">Part D: Extended Near-Transfer Tasks (6.0 Points)</h3>
+            <span class="text-xs text-slate-300 font-mono">Algorithmic Context 2 MCQs</span>
           </div>
 
           <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm space-y-2">
-            <p class="font-bold text-slate-900 text-xs uppercase tracking-wider">Problem Task G1 Specification:</p>
+            <p class="font-bold text-slate-900 text-xs uppercase tracking-wider">Problem Context 2 Specification:</p>
             <p class="text-xs text-slate-700">
               Consider an NFA $M = (Q, \Sigma, \delta, q_0, F)$ formally defined by:
             </p>
             <div class="font-mono text-xs bg-white p-3 rounded border border-slate-200 text-slate-800 space-y-1">
-              <p>&bull; <strong>States:</strong> $Q = \{1, 2, 3\}$ &bull; <strong>Alphabet:</strong> $\Sigma = \{a, b\}$ &bull; <strong>Start State:</strong> $1$ &bull; <strong>Accept States:</strong> $F = \{3\}$</p>
+              <p>&bull; <strong>States:</strong> $Q = \{1, 2, 3\}$ &bull; <strong>Alphabet:</strong> $\Sigma = \{a, b\}$ &bull; <strong>Start State:</strong> $1$ &bull; <strong>Accept State:</strong> $F = \{3\}$</p>
               <p>&bull; $\delta(1, a) = \{1\}$ ; $\delta(1, \varepsilon) = \{2\}$</p>
               <p>&bull; $\delta(2, b) = \{2, 3\}$ ; $\delta(2, a) = \emptyset$</p>
               <p>&bull; $\delta(3, a) = \{3\}$ ; $\delta(3, b) = \emptyset$ ; $\delta(3, \varepsilon) = \emptyset$</p>
             </div>
           </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-slate-800 mb-1.5">
-              Question 3.11 (G1.1): Determine the formal initial state $S_0$ of the equivalent DFA. Show your explicit $\varepsilon$-closure calculation. <span class="text-red-500">*</span>
-            </label>
-            <textarea name="post_g1_1" rows="3" required placeholder="Write down the step-by-step E-set calculation for the start state..."
-              class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 font-mono"></textarea>
+          <!-- Q11 -->
+          <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
+            <p class="font-medium text-slate-900 text-sm">
+              <strong>Q11 (G1.1 Start State Formation):</strong> Applying the formal subset construction algorithm to Context 2, what is the exact initial start state $S_0$ of the equivalent DFA? <span class="text-red-500">*</span>
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm font-mono">
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q11" value="{1}" required class="text-blue-600" />
+                <span class="ml-2 text-slate-700">{1}</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q11" value="{1, 2}" required class="text-blue-600" />
+                <span class="ml-2 text-slate-700">{1, 2}</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q11" value="{2}" required class="text-blue-600" />
+                <span class="ml-2 text-slate-700">{2}</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q11" value="{1, 2, 3}" required class="text-blue-600" />
+                <span class="ml-2 text-slate-700">{1, 2, 3}</span>
+              </label>
+            </div>
           </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-slate-800 mb-1.5">
-              Question 3.12 (G1.2): Construct the complete Transition Table for the resulting DFA. For every generated state $S$, explicitly show: $\text{Move}(S, \sigma)$ and $\text{E-set}(\text{Move}(S, \sigma))$ for both $\sigma \in \{a, b\}$. Include Trap if applicable. <span class="text-red-500">*</span>
-            </label>
-            <textarea name="post_g1_2" rows="6" required placeholder="State S | Move(S, a) | E-set -> Target | Move(S, b) | E-set -> Target..."
-              class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 font-mono"></textarea>
+          <!-- Q12 -->
+          <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
+            <p class="font-medium text-slate-900 text-sm">
+              <strong>Q12 (G1.2 Move &amp; E-set Transition Calculation):</strong> From the start state $\{1, 2\}$, what are the exact transitions on symbols 'a' and 'b' (evaluating $\text{E-set}(\text{Move}(\{1, 2\}, \sigma))$)? <span class="text-red-500">*</span>
+            </p>
+            <div class="space-y-2 text-sm font-mono">
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q12" value="On 'a' -> {1, 2}; On 'b' -> {2, 3}" required class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">On 'a' -&gt; {1, 2} ; On 'b' -&gt; {2, 3}</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q12" value="On 'a' -> {1}; On 'b' -> {3}" required class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">On 'a' -&gt; {1} ; On 'b' -&gt; {3}</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q12" value="On 'a' -> Trap; On 'b' -> {2, 3}" required class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">On 'a' -&gt; Trap ; On 'b' -&gt; {2, 3}</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q12" value="On 'a' -> {1, 2}; On 'b' -> Trap" required class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">On 'a' -&gt; {1, 2} ; On 'b' -&gt; Trap</span>
+              </label>
+            </div>
           </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-slate-800 mb-1.5">
-              Question 3.13 (G1.3): Formally specify the resulting DFA 5-tuple $M' = (Q', \Sigma, \delta', q_0', F')$. Explicitly list all states in $Q'$ and designate all accept states in $F'$. <span class="text-red-500">*</span>
-            </label>
-            <textarea name="post_g1_3" rows="4" required placeholder="List Q' = {...}, Sigma = {...}, q0' = ..., F' = {...}"
-              class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 font-mono"></textarea>
+          <!-- Q13 -->
+          <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
+            <p class="font-medium text-slate-900 text-sm">
+              <strong>Q13 (G1.3 DFA Accept State Identification):</strong> In the resulting DFA $M'$, which compound states form the formal set of accepting states $F'$? <span class="text-red-500">*</span>
+            </p>
+            <div class="space-y-2 text-sm font-mono">
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q13" value="Only {{3}}" required class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Only {{3}}</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q13" value="Exactly {{2, 3}, {3}}" required class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Exactly {{2, 3}, {3}}</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q13" value="Exactly {{1, 2}, {2, 3}, {3}}" required class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Exactly {{1, 2}, {2, 3}, {3}}</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q13" value="Only Trap" required class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Only Trap</span>
+              </label>
+            </div>
           </div>
         </div>
 
-        <!-- PART E: GENERATIVE FAR-TRANSFER TASK (CRITICAL REASONING & COUNTER-EXAMPLE) -->
+        <!-- PART E: EXTENDED FAR-TRANSFER MCQS (TRANSFORMED FROM G2) -->
         <div class="space-y-6">
           <div class="bg-slate-900 text-white p-3 rounded-lg flex justify-between items-center">
-            <h3 class="text-sm font-bold uppercase tracking-wider">Part E: Generative Far-Transfer Task (6.0 Points)</h3>
-            <span class="text-xs text-slate-300 font-mono">Critical Reasoning</span>
+            <h3 class="text-sm font-bold uppercase tracking-wider">Part E: Extended Far-Transfer Tasks (6.0 Points)</h3>
+            <span class="text-xs text-slate-300 font-mono">Critical Reasoning MCQs</span>
           </div>
 
           <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm space-y-2">
-            <p class="font-bold text-slate-900 text-xs uppercase tracking-wider">Task G2 Heuristic Proposal:</p>
+            <p class="font-bold text-slate-900 text-xs uppercase tracking-wider">Minimization Shortcut Heuristic Proposal:</p>
             <blockquote class="italic text-xs bg-white p-3 rounded border border-slate-200 text-slate-700">
               "A software engineer proposes the following shortcut: If two accepting states $S_x$ and $S_y$ have the exact same number of incoming transitions, and neither has an outgoing transition on character 'b', they are guaranteed to be equivalent and can be collapsed immediately without running full partition refinement."
             </blockquote>
           </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-slate-800 mb-1.5">
-              Question 3.14 (G2.1): Is this heuristic mathematically valid in general? If NOT, construct a concrete formal counter-example (provide a state transition diagram or transition table with states $S_x$ and $S_y$ satisfying the engineer's conditions that clearly recognize different languages). <span class="text-red-500">*</span>
-            </label>
-            <textarea name="post_g2_1" rows="5" required placeholder="State whether valid/invalid and construct your formal counter-example..."
-              class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 font-sans"></textarea>
+          <!-- Q14 -->
+          <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
+            <p class="font-medium text-slate-900 text-sm">
+              <strong>Q14 (G2.1 Mathematical Validity Assessment):</strong> Is this engineer's minimization shortcut mathematically sound in general? <span class="text-red-500">*</span>
+            </p>
+            <div class="space-y-2 text-sm">
+              <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q14" value="Valid: Having identical incoming transition counts guarantees identical Nerode congruence." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Valid: Having identical incoming transition counts guarantees identical Nerode congruence.</span>
+              </label>
+              <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q14" value="Valid: As long as neither state has an epsilon transition, incoming reachability preserves language equivalence." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Valid: As long as neither state has an epsilon transition, incoming reachability preserves language equivalence.</span>
+              </label>
+              <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q14" value="Invalid: Incoming edge count only reflects past reachability. Two states may transition to different partitions on symbol 'a' (e.g., Sx to accept while Sy to trap), distinguishing their accepted futures." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Invalid: Incoming edge count only reflects past reachability. Two states may transition to different partitions on symbol 'a' (e.g., $S_x \to \text{accept}$ while $S_y \to \text{trap}$), distinguishing their accepted futures.</span>
+              </label>
+              <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q14" value="Invalid: But it becomes strictly valid whenever the alphabet size |Σ| <= 2." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Invalid: But it becomes strictly valid whenever the alphabet size $|\Sigma| \le 2$.</span>
+              </label>
+            </div>
           </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-slate-800 mb-1.5">
-              Question 3.15 (G2.2): Explain how the Equivalence Partitioning algorithm (Hopcroft/Moore) systematically avoids this error by focusing on future forward distinguishability rather than backward incoming edge counts. <span class="text-red-500">*</span>
-            </label>
-            <textarea name="post_g2_2" rows="4" required placeholder="Explain why forward distinguishability over all strings w governs equivalence rather than past incoming edges..."
-              class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 font-sans"></textarea>
+          <!-- Q15 -->
+          <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
+            <p class="font-medium text-slate-900 text-sm">
+              <strong>Q15 (G2.2 Equivalence Invariant Mechanism):</strong> How does the standard Equivalence Partitioning algorithm (Moore / Hopcroft) systematically avoid the error in this heuristic? <span class="text-red-500">*</span>
+            </p>
+            <div class="space-y-2 text-sm">
+              <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q15" value="By analyzing forward distinguishability over all possible suffixes w in Σ* (future behavior) starting from P0 = {Q \ F, F}, completely ignoring retrospective incoming edge counts." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">By analyzing <em>forward distinguishability</em> over all possible suffixes $w \in \Sigma^*$ (future behavior) starting from $P_0 = \{Q \setminus F, F\}$, completely ignoring retrospective incoming edge counts.</span>
+              </label>
+              <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q15" value="By reversing all directed edges in the transition graph prior to running partition refinement." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">By reversing all directed edges in the transition graph prior to running partition refinement.</span>
+              </label>
+              <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q15" value="By computing the topological sort of all non-accepting states first." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">By computing the topological sort of all non-accepting states first.</span>
+              </label>
+              <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="post_q15" value="By requiring that all accepting states must have identical in-degrees before partitioning begins." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">By requiring that all accepting states must have identical in-degrees before partitioning begins.</span>
+              </label>
+            </div>
           </div>
         </div>
 
-        <!-- PART F: INSTRUCTIONAL FEEDBACK & USABILITY -->
+        <!-- PART F: INSTRUCTIONAL FEEDBACK (100% OBJECTIVE MCQS) -->
         <div class="space-y-6">
           <div class="bg-slate-900 text-white p-3 rounded-lg flex justify-between items-center">
-            <h3 class="text-sm font-bold uppercase tracking-wider">Part F: Instructional Feedback</h3>
-            <span class="text-xs text-slate-300">Pedagogical Review</span>
+            <h3 class="text-sm font-bold uppercase tracking-wider">Part F: Instructional Feedback & Course Improvement</h3>
+            <span class="text-xs text-slate-300 font-mono">Optional / Non-graded</span>
           </div>
 
           <div>
-            <label class="block text-sm font-semibold text-slate-800 mb-2">
-              Question 3.16: Which component of the instructional materials contributed most to your understanding of the transformation algorithms?
+            <label class="block text-sm font-semibold text-slate-800 mb-1">
+              Question 3.16: Which component of the instructional materials contributed most to your understanding of the transformation algorithms? <span class="text-xs font-normal text-slate-500">(Optional)</span>
             </label>
-            <div class="space-y-2 text-sm">
+            <div class="space-y-2 text-sm mt-2">
               <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="pedagogical_feature" value="Step-by-step state transition diagrams and graph representations" class="text-blue-600" />
+                <input type="radio" name="pedagogical_feature" value="The step-by-step state transition diagrams and visual graph topologies" class="text-blue-600" />
                 <span class="ml-2.5 text-slate-700">The step-by-step state transition diagrams and visual graph topologies</span>
               </label>
               <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="pedagogical_feature" value="Detailed transition tables and algebraic closure breakdowns" class="text-blue-600" />
+                <input type="radio" name="pedagogical_feature" value="The detailed transition tables and algebraic closure breakdowns" class="text-blue-600" />
                 <span class="ml-2.5 text-slate-700">The detailed transition tables and algebraic closure computation breakdowns</span>
               </label>
               <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="pedagogical_feature" value="String processing walkthroughs and state sequence tracing" class="text-blue-600" />
+                <input type="radio" name="pedagogical_feature" value="The string processing walkthroughs and state sequence tracing" class="text-blue-600" />
                 <span class="ml-2.5 text-slate-700">The string processing walkthroughs and step-by-step state sequence tracing</span>
               </label>
               <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="pedagogical_feature" value="Formal 5-tuple mathematical definitions and invariant rules" class="text-blue-600" />
+                <input type="radio" name="pedagogical_feature" value="The formal 5-tuple mathematical definitions and invariant rules" class="text-blue-600" />
                 <span class="ml-2.5 text-slate-700">The formal 5-tuple mathematical definitions and invariant equivalence rules</span>
               </label>
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-semibold text-slate-800 mb-2">
-              Question 3.17: Constructive Feedback: Which algorithmic rule was least intuitive or most difficult to master, and what improvement would best assist your learning?
+            <label class="block text-sm font-semibold text-slate-800 mb-1">
+              Question 3.17: Which algorithmic concept did you find most challenging or least intuitive during this session? <span class="text-xs font-normal text-slate-500">(Optional)</span>
             </label>
-            <textarea name="pedagogical_open_feedback" rows="3" placeholder="Share any feedback on challenging concepts or formatting..."
-              class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 font-sans"></textarea>
+            <div class="space-y-2 text-sm mt-2">
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="pedagogical_challenge" value="Computing E-closures and determining the initial compound state" class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Computing $\varepsilon$-closures ($\text{E-set}$) and identifying the initial compound state</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="pedagogical_challenge" value="Evaluating Move(S, sigma) followed by E-set(Move)" class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Evaluating intermediate transitions: $\text{Move}(S, \sigma)$ followed by $\text{E-set}(\text{Move})$</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="pedagogical_challenge" value="Handling undefined paths and routing transitions to the Trap State" class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Handling undefined paths and routing transitions to the Trap (Dead) State</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="pedagogical_challenge" value="Equivalence Partitioning and merging indistinguishable states" class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Equivalence Partitioning ($P_0 \to P_1 \to \dots$) and merging indistinguishable states</span>
+              </label>
+              <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="pedagogical_challenge" value="None, all transformation algorithms were clear" class="text-blue-600" />
+                <span class="ml-2.5 text-slate-700">None, all transformation algorithms were clear and intuitive</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-800 mb-1">
+              Question 3.18: Open Course & Pedagogical Feedback <span class="text-xs font-normal text-slate-500">(Optional)</span>
+            </label>
+            <p class="text-xs text-slate-500 mb-2">
+              Share any constructive suggestions to improve the course, instructional delivery, or learning materials. You may respond in English or Hungarian (this open feedback will be analyzed qualitatively via NLP topic modeling).
+            </p>
+            <textarea name="course_improvement_feedback" id="course_improvement_feedback" rows="4"
+              placeholder="What worked well, what felt confusing, or what practical features/explanations would best support your future learning?"
+              class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm text-slate-800 bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-sans"></textarea>
           </div>
         </div>
 
@@ -749,7 +866,7 @@
 
   <script>
     // URL of Google Apps Script Web App for Post-Session
-    const POST_SESSION_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBEaRojQHqZHjhz8AqYM_QE3CWWwqGBJ8XXE4JpFjHA6TstwjnfY-41Uuewf1FcpmKdw/exec";
+    const POST_SESSION_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrgIJ3C5ejEmf4w7PwIX_ffKXy1n2F_jn3F7tSGT0P4z-quMrUk9PK32_Ai93dbmUQmw/exec";
 
     const sessionStartTime = Date.now();
 
@@ -869,22 +986,18 @@
     });
 
     function updateCompletionProgress() {
-      const requiredInputs = document.querySelectorAll("#postSurveyForm input[required], #postSurveyForm textarea[required]");
+      const requiredRadios = document.querySelectorAll("#postSurveyForm input[type='radio'][required]");
       const checkedGroups = new Set();
       let answeredCount = 0;
 
-      requiredInputs.forEach(input => {
-        if (input.type === "radio") {
-          if (!checkedGroups.has(input.name)) {
-            checkedGroups.add(input.name);
-            if (document.querySelector(`input[name="${input.name}"]:checked`)) answeredCount++;
-          }
-        } else {
-          if (input.value.trim() !== "") answeredCount++;
+      requiredRadios.forEach(input => {
+        if (!checkedGroups.has(input.name)) {
+          checkedGroups.add(input.name);
+          if (document.querySelector(`input[name="${input.name}"]:checked`)) answeredCount++;
         }
       });
 
-      const totalRequiredUnits = (requiredInputs.length - document.querySelectorAll("#postSurveyForm input[type='radio'][required]").length) + checkedGroups.size;
+      const totalRequiredUnits = checkedGroups.size;
       const pct = Math.min(100, Math.round((answeredCount / (totalRequiredUnits || 1)) * 100));
 
       document.getElementById("progressBar").style.width = `${pct}%`;
@@ -904,14 +1017,17 @@
         idSection.scrollIntoView({ behavior: "smooth", block: "center" });
         idSection.classList.add("ring-2", "ring-rose-400", "rounded-xl");
         setTimeout(() => idSection.classList.remove("ring-2", "ring-rose-400"), 4000);
-        showToast("Please provide either your Participant ID or your Neptun Code / Name so your responses can be linked.");
+        showToast("Please provide either your Participant ID, Neptun Code, or Full Name.");
         return false;
       }
 
-      const requiredInputs = form.querySelectorAll("input[required], textarea[required]");
+      // Check all required radio groups (100% MCQs)
+      const requiredRadios = form.querySelectorAll("input[type='radio'][required]");
+      const checkedGroupNames = new Set();
 
-      for (let input of requiredInputs) {
-        if (input.type === "radio") {
+      for (let input of requiredRadios) {
+        if (!checkedGroupNames.has(input.name)) {
+          checkedGroupNames.add(input.name);
           const radioGroup = form.querySelectorAll(`input[name="${input.name}"]`);
           if (!Array.from(radioGroup).some(r => r.checked)) {
             const card = input.closest("div") || input.parentElement;
@@ -919,15 +1035,6 @@
             card.classList.add("ring-2", "ring-rose-400", "rounded-xl");
             setTimeout(() => card.classList.remove("ring-2", "ring-rose-400"), 4000);
             showToast("Please provide an answer for the highlighted question.");
-            return false;
-          }
-        } else {
-          if (!input.value.trim()) {
-            input.scrollIntoView({ behavior: "smooth", block: "center" });
-            input.focus();
-            input.classList.add("ring-2", "ring-rose-400");
-            setTimeout(() => input.classList.remove("ring-2", "ring-rose-400"), 4000);
-            showToast("Please complete this required field.");
             return false;
           }
         }
