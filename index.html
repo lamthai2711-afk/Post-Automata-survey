@@ -341,6 +341,10 @@
             <p class="font-medium text-slate-900 text-sm">
               <strong>Q1 ($\varepsilon$-Closure Invariant):</strong> In an NFA with $\varepsilon$-transitions, what is the exact condition under which the $\varepsilon$-closure of a state $q$ is strictly equal to the singleton set $\{q\}$ (i.e., $\text{E-set}(q) = \{q\}$)? <span class="text-red-500">*</span>
             </p>
+            <div class="diagram my-3">
+              <img src="diagrams/eclosure.svg" alt="Figure: epsilon-closure — a state with no outgoing epsilon-transition has E-set(q) = {q}." style="max-width:560px;width:100%;height:auto" />
+              <p class="text-xs text-slate-500 mt-1">Figure: epsilon-closure — a state with no outgoing epsilon-transition has E-set(q) = {q}.</p>
+            </div>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input type="radio" name="post_q1" value="A" required class="mt-1 text-blue-600" />
@@ -366,6 +370,10 @@
             <p class="font-medium text-slate-900 text-sm">
               <strong>Q2 (Accepting Criterion in Subset Construction):</strong> Let $M_{\text{DFA}}$ be an automaton constructed via Subset Construction. Under what formal condition is a compound state $S = \{q_1, q_2, \dots, q_k\}$ designated as an accepting state? <span class="text-red-500">*</span>
             </p>
+            <div class="diagram my-3">
+              <img src="diagrams/venn-accept.svg" alt="Figure: a compound state accepts exactly when it overlaps the NFA accept set." style="max-width:560px;width:100%;height:auto" />
+              <p class="text-xs text-slate-500 mt-1">Figure: a compound state accepts exactly when it overlaps the NFA accept set.</p>
+            </div>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input type="radio" name="post_q2" value="A" required class="mt-1 text-blue-600" />
@@ -391,6 +399,10 @@
             <p class="font-medium text-slate-900 text-sm">
               <strong>Q3 (Theoretical Necessity of Trap State):</strong> What is the formal theoretical necessity of introducing a "Dead State" (Trap State) when transforming an arbitrary NFA into a DFA? <span class="text-red-500">*</span>
             </p>
+            <div class="diagram my-3">
+              <img src="diagrams/trap.svg" alt="Figure: missing transitions are routed to a Trap state that loops forever and never accepts." style="max-width:560px;width:100%;height:auto" />
+              <p class="text-xs text-slate-500 mt-1">Figure: missing transitions are routed to a Trap state that loops forever and never accepts.</p>
+            </div>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input type="radio" name="post_q3" value="A" required class="mt-1 text-blue-600" />
@@ -414,8 +426,12 @@
           <!-- Q4 -->
           <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
             <p class="font-medium text-slate-900 text-sm">
-              <strong>Q4 (Equivalence Partitioning Invariant):</strong> In Moore's or Hopcroft's DFA minimization, what foundational principle justifies partitioning states initially into $P_0 = \{Q \setminus F, F\}$? <span class="text-red-500">*</span>
+              <strong>Q4 (Equivalence Partitioning Invariant):</strong> In DFA minimization, states are grouped step by step. Two states are called <strong>distinguishable</strong> if some word is accepted by one of them and rejected by the other. Note that the empty word $\varepsilon$ is accepted by every accept state and rejected by every non-accept state — so accept and non-accept states are already distinguishable by a word of length 0. Given this, what foundational principle justifies partitioning states initially into $P_0 = \{Q \setminus F, F\}$? <span class="text-red-500">*</span>
             </p>
+            <div class="diagram my-3">
+              <img src="diagrams/p0-partition.svg" alt="Figure: the initial partition P0 — the two groups already differ on the empty word." style="max-width:560px;width:100%;height:auto" />
+              <p class="text-xs text-slate-500 mt-1">Figure: the initial partition P0 — the two groups already differ on the empty word.</p>
+            </div>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input type="radio" name="post_q4" value="A" required class="mt-1 text-blue-600" />
@@ -457,7 +473,11 @@
           </div>
 
           <!-- Q5 -->
-          <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
+                    <div class="diagram my-3">
+            <img src="diagrams/context1-nfa.svg" alt="Figure: Context 1 NFA — start A, accept C." style="max-width:560px;width:100%;height:auto" />
+            <p class="text-xs text-slate-500 mt-1">Figure: Context 1 NFA — start A, accept C.</p>
+          </div>
+<div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
             <p class="font-medium text-slate-900 text-sm">
               <strong>Q5 (Start State Formation):</strong> Applying the formal subset construction algorithm to Context 1, what is the exact initial state $q_{0\_\text{DFA}}$ of the resulting DFA? <span class="text-red-500">*</span>
             </p>
@@ -567,8 +587,12 @@
           <!-- Q9 -->
           <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
             <p class="font-medium text-slate-900 text-sm">
-              <strong>Q9 (Equivalence Under Application Semantics):</strong> An embedded protocol parser has two distinct accept states: $S_{\text{HTTP\_OK}}$ (emits 200) and $S_{\text{WS\_OK}}$ (emits 101). Both states loop back to themselves on any character in $\Sigma$, and neither has transitions to other states. The downstream microservice treats both codes identically. Can these two states be merged during Moore state minimization? <span class="text-red-500">*</span>
+              <strong>Q9 (State Merging Under Behavioral Equivalence):</strong> A minimization procedure may merge two states only when <strong>no input word can distinguish them</strong> — that is, from either state, every word leads to the same accept/reject outcome. Consider two accept states $p$ and $q$ of a DFA. For every input character, $p$ and $q$ move to states that behave identically, and $p$ and $q$ themselves are both accept states. The two states were introduced for two different features of the system. Can $p$ and $q$ be merged during minimization? <span class="text-red-500">*</span>
             </p>
+            <div class="diagram my-3">
+              <img src="diagrams/merge-pq.svg" alt="Figure: p and q are both accept states with identical futures — no word distinguishes them." style="max-width:560px;width:100%;height:auto" />
+              <p class="text-xs text-slate-500 mt-1">Figure: p and q are both accept states with identical futures — no word distinguishes them.</p>
+            </div>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input type="radio" name="post_q9" value="No. Because application-level meaning differs, formal language equivalence forbids state collapse." required class="mt-1 text-blue-600" />
@@ -594,6 +618,10 @@
             <p class="font-medium text-slate-900 text-sm">
               <strong>Q10 (Microcontroller Memory Optimization):</strong> An engineer implements a DFA parser on an 8-bit microcontroller using a flat transition matrix array $(\text{State} \times \text{Symbol})$. What is the exact memory footprint reduction when minimizing a DFA from 5 states to 3 states over an alphabet $|\Sigma| = 4$? <span class="text-red-500">*</span>
             </p>
+            <div class="diagram my-3">
+              <img src="diagrams/matrix.svg" alt="Figure: transition-table entries before and after minimization." style="max-width:560px;width:100%;height:auto" />
+              <p class="text-xs text-slate-500 mt-1">Figure: transition-table entries before and after minimization.</p>
+            </div>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input type="radio" name="post_q10" value="It eliminates exactly 8 transition entries in the lookup array (a 40% memory reduction)." required class="mt-1 text-blue-600" />
@@ -636,7 +664,11 @@
           </div>
 
           <!-- Q11 -->
-          <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
+                    <div class="diagram my-3">
+            <img src="diagrams/context2-nfa.svg" alt="Figure: Context 2 NFA — start 1, accept 3." style="max-width:560px;width:100%;height:auto" />
+            <p class="text-xs text-slate-500 mt-1">Figure: Context 2 NFA — start 1, accept 3.</p>
+          </div>
+<div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
             <p class="font-medium text-slate-900 text-sm">
               <strong>Q11 (G1.1 Start State Formation):</strong> Applying the formal subset construction algorithm to Context 2, what is the exact initial start state $S_0$ of the equivalent DFA? <span class="text-red-500">*</span>
             </p>
@@ -730,6 +762,10 @@
             <p class="font-medium text-slate-900 text-sm">
               <strong>Q14 (G2.1 Mathematical Validity Assessment):</strong> Is this engineer's minimization shortcut mathematically sound in general? <span class="text-red-500">*</span>
             </p>
+            <div class="diagram my-3">
+              <img src="diagrams/distinguishability.svg" alt="Figure: same number of incoming transitions (same past) but different futures on input a." style="max-width:560px;width:100%;height:auto" />
+              <p class="text-xs text-slate-500 mt-1">Figure: same number of incoming transitions (same past) but different futures on input a.</p>
+            </div>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input type="radio" name="post_q14" value="Valid: Having identical incoming transition counts guarantees identical Nerode congruence." required class="mt-1 text-blue-600" />
@@ -753,7 +789,7 @@
           <!-- Q15 -->
           <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
             <p class="font-medium text-slate-900 text-sm">
-              <strong>Q15 (G2.2 Equivalence Invariant Mechanism):</strong> How does the standard Equivalence Partitioning algorithm (Moore / Hopcroft) systematically avoid the error in this heuristic? <span class="text-red-500">*</span>
+              <strong>Q15 (G2.2 Equivalence Invariant Mechanism):</strong> The standard minimization algorithm works as follows: start with two groups (accept states and non-accept states). Then repeatedly split any group whose states move to different groups on the same input character, until no group can be split further. The engineer's shortcut from the previous question instead groups states by how many incoming transitions they have. How does the standard algorithm systematically avoid the error in this heuristic? <span class="text-red-500">*</span>
             </p>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
