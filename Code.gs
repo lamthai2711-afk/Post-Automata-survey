@@ -191,13 +191,13 @@ function doPost(e) {
     var q10_score = (q10_ans.indexOf("8 transition entries") !== -1) ? 2 : 0;
     var far_transfer_mcq = q9_score + q10_score;
 
-    // Part D Keys (2 pts each): Q11={1, 2}, Q12 contains "On 'a' -> {1, 2}", Q13 contains "{{2, 3}, {3}}"
+    // Part D Keys (2 pts each): Q11={1, 2}, Q12 contains BOTH "On 'a' -> {1, 2}" AND "On 'b' -> {2, 3}", Q13 contains "{{2, 3}, {3}}"
     var q11_ans = String(data.post_q11 || data.post_g1_1 || "").trim();
     var q12_ans = String(data.post_q12 || data.post_g1_2 || "").trim();
     var q13_ans = String(data.post_q13 || data.post_g1_3 || "").trim();
 
     var q11_score = (q11_ans === "{1, 2}" || q11_ans.indexOf("{1, 2}") !== -1) ? 2 : 0;
-    var q12_score = (q12_ans.indexOf("On 'a' -> {1, 2}") !== -1) ? 2 : 0;
+    var q12_score = (q12_ans.indexOf("On 'a' -> {1, 2}") !== -1 && q12_ans.indexOf("On 'b' -> {2, 3}") !== -1) ? 2 : 0;
     var q13_score = (q13_ans.indexOf("{{2, 3}, {3}}") !== -1) ? 2 : 0;
     var part_d_total = q11_score + q12_score + q13_score;
 
