@@ -587,7 +587,7 @@
           <!-- Q9 -->
           <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
             <p class="font-medium text-slate-900 text-sm">
-              <strong>Q9 (State Merging Under Behavioral Equivalence):</strong> A minimization procedure may merge two states only when <strong>no input word can distinguish them</strong> — that is, from either state, every word leads to the same accept/reject outcome. Consider two accept states $p$ and $q$ of a DFA. For every input character, $p$ and $q$ move to states that behave identically, and $p$ and $q$ themselves are both accept states. The two states were introduced for two different features of the system. Can $p$ and $q$ be merged during minimization? <span class="text-red-500">*</span>
+              <strong>Q9 (State Merging Under Behavioral Equivalence):</strong> A minimization procedure may merge two states only when <strong>no input word can distinguish them</strong> — that is, from either state, every word leads to the same accept/reject outcome. In the app's Minimized DFA view, the equivalence map groups states that behave identically. Consider two accept states $p$ and $q$ of a DFA shown in the app: for every input character, $p$ and $q$ move to states in the same equivalence group, and $p$ and $q$ themselves are both accept states (the same initial block). The two states were introduced for two different features of the system. Can $p$ and $q$ be merged during minimization? <span class="text-red-500">*</span>
             </p>
             <div class="diagram my-3">
               <img src="diagrams/merge-pq.svg" alt="Figure: p and q are both accept states with identical futures — no word distinguishes them." style="max-width:560px;width:100%;height:auto" />
@@ -763,6 +763,8 @@
             <p class="font-medium text-slate-900 text-sm">
               <strong>Q14 (G2.1 Equivalence Grouping Verification):</strong> In a Minimized DFA analysis, two accept states $S_1$ and $S_2$ belong to the same initial block. On symbol '0', both move to states in the same group; on symbol '1', both move to $\text{Trap}$. The equivalence map places $S_1$ and $S_2$ in the same minimized group. Is this grouping correct? <span class="text-red-500">*</span>
             </p>
+            <img src="diagrams/q14-signature.svg" alt="Figure: S1 and S2 share the same target groups on every symbol." style="max-width:560px;width:100%;height:auto" />
+            <p class="text-xs text-slate-500 mt-1">Figure: S1 and S2 share the same target groups on every symbol.</p>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input type="radio" name="post_q14" value="No — accept states can never be merged under any circumstances." required class="mt-1 text-blue-600" />
@@ -788,6 +790,8 @@
             <p class="font-medium text-slate-900 text-sm">
               <strong>Q15 (G2.2 Reading the State Collapsing Equivalence Map):</strong> A Minimized DFA equivalence map shows three groups: $M_0 = \{s_0, s_1\}$, $M_1 = \{s_2\}$, and $M_2 = \{\text{Trap}\}$. The original start state is $s_0$ and the original accept state is $s_2$. Which statement about the minimized DFA is correct? <span class="text-red-500">*</span>
             </p>
+            <img src="diagrams/q15-equivalence-map.svg" alt="Figure: an equivalence map groups states — reading start/accept groups still requires the original DFA." style="max-width:560px;width:100%;height:auto" />
+            <p class="text-xs text-slate-500 mt-1">Figure: an equivalence map groups states — reading start/accept groups still requires the original DFA.</p>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
                 <input type="radio" name="post_q15" value="It has 3 states (M0, M1, M2); its start state is M0; its accept state is M1 (by forward distinguishability)." required class="mt-1 text-blue-600" />
