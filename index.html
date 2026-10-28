@@ -744,44 +744,41 @@
         </div>
 
         <!-- PART E: EXTENDED FAR-TRANSFER MCQS (TRANSFORMED FROM G2) -->
+                <!-- PART E: EXTENDED FAR-TRANSFER MCQS (TRANSFORMED FROM G2) -->
         <div class="space-y-6">
           <div class="bg-slate-900 text-white p-3 rounded-lg flex justify-between items-center">
             <h3 class="text-sm font-bold uppercase tracking-wider">Part E: Extended Far-Transfer Tasks (6.0 Points)</h3>
-            <span class="text-xs text-slate-300 font-mono">Critical Reasoning MCQs</span>
+            <span class="text-xs text-slate-300 font-mono">Applying the Equivalence Map &amp; Minimization View to New Cases</span>
           </div>
 
           <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm space-y-2">
-            <p class="font-bold text-slate-900 text-xs uppercase tracking-wider">Minimization Shortcut Heuristic Proposal:</p>
-            <blockquote class="italic text-xs bg-white p-3 rounded border border-slate-200 text-slate-700">
-              "A software engineer proposes the following shortcut: If two accepting states $S_x$ and $S_y$ have the exact same number of incoming transitions, and neither has an outgoing transition on character 'b', they are guaranteed to be equivalent and can be collapsed immediately without running full partition refinement."
-            </blockquote>
+            <p class="font-bold text-slate-900 text-xs uppercase tracking-wider">Part E: Extended Far-Transfer Tasks — Applying the Minimization View to New Cases:</p>
+            <p class="text-xs text-slate-700">
+              Evaluate how equivalence partitioning and the State Collapsing Equivalence Map ($M_0, M_1, M_2, \dots$) group indistinguishable states into minimal canonical form.
+            </p>
           </div>
 
           <!-- Q14 -->
           <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
             <p class="font-medium text-slate-900 text-sm">
-              <strong>Q14 (G2.1 Mathematical Validity Assessment):</strong> Is this engineer's minimization shortcut mathematically sound in general? <span class="text-red-500">*</span>
+              <strong>Q14 (G2.1 Equivalence Grouping Verification):</strong> In a Minimized DFA analysis, two accept states $S_1$ and $S_2$ belong to the same initial block. On symbol '0', both move to states in the same group; on symbol '1', both move to $\text{Trap}$. The equivalence map places $S_1$ and $S_2$ in the same minimized group. Is this grouping correct? <span class="text-red-500">*</span>
             </p>
-            <div class="diagram my-3">
-              <img src="diagrams/distinguishability.svg" alt="Figure: same number of incoming transitions (same past) but different futures on input a." style="max-width:560px;width:100%;height:auto" />
-              <p class="text-xs text-slate-500 mt-1">Figure: same number of incoming transitions (same past) but different futures on input a.</p>
-            </div>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="post_q14" value="Valid: Having identical incoming transition counts guarantees identical Nerode congruence." required class="mt-1 text-blue-600" />
-                <span class="ml-2.5 text-slate-700">Valid: Having identical incoming transition counts guarantees identical Nerode congruence.</span>
+                <input type="radio" name="post_q14" value="No — accept states can never be merged under any circumstances." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">No — accept states can never be merged under any circumstances.</span>
               </label>
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="post_q14" value="Valid: As long as neither state has an epsilon transition, incoming reachability preserves language equivalence." required class="mt-1 text-blue-600" />
-                <span class="ml-2.5 text-slate-700">Valid: As long as neither state has an epsilon transition, incoming reachability preserves language equivalence.</span>
+                <input type="radio" name="post_q14" value="No — moving to Trap makes them distinguishable from each other." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">No — moving to $\text{Trap}$ makes them distinguishable from each other.</span>
               </label>
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="post_q14" value="Invalid: Incoming edge count only reflects past reachability. Two states may transition to different partitions on symbol 'a' (e.g., Sx to accept while Sy to trap), distinguishing their accepted futures." required class="mt-1 text-blue-600" />
-                <span class="ml-2.5 text-slate-700">Invalid: Incoming edge count only reflects past reachability. Two states may transition to different partitions on symbol 'a' (e.g., $S_x \to \text{accept}$ while $S_y \to \text{trap}$), distinguishing their accepted futures.</span>
+                <input type="radio" name="post_q14" value="Yes — they share the same initial block and identical target groups on every symbol, so no word distinguishes them and they merge. [Invalid: Incoming edge count only reflects past reachability]" required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Yes — they share the same initial block and identical target groups on every symbol, so no word distinguishes them and they merge.</span>
               </label>
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="post_q14" value="Invalid: But it becomes strictly valid whenever the alphabet size |Σ| <= 2." required class="mt-1 text-blue-600" />
-                <span class="ml-2.5 text-slate-700">Invalid: But it becomes strictly valid whenever the alphabet size $|\Sigma| \le 2$.</span>
+                <input type="radio" name="post_q14" value="Only if an ε-transition connects S1 and S2." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Only if an $\varepsilon$-transition connects $S_1$ and $S_2$.</span>
               </label>
             </div>
           </div>
@@ -789,24 +786,24 @@
           <!-- Q15 -->
           <div class="p-5 border border-slate-200 rounded-xl space-y-3 bg-white">
             <p class="font-medium text-slate-900 text-sm">
-              <strong>Q15 (G2.2 Equivalence Invariant Mechanism):</strong> The standard minimization algorithm works as follows: start with two groups (accept states and non-accept states). Then repeatedly split any group whose states move to different groups on the same input character, until no group can be split further. The engineer's shortcut from the previous question instead groups states by how many incoming transitions they have. How does the standard algorithm systematically avoid the error in this heuristic? <span class="text-red-500">*</span>
+              <strong>Q15 (G2.2 Reading the State Collapsing Equivalence Map):</strong> A Minimized DFA equivalence map shows three groups: $M_0 = \{s_0, s_1\}$, $M_1 = \{s_2\}$, and $M_2 = \{\text{Trap}\}$. The original start state is $s_0$ and the original accept state is $s_2$. Which statement about the minimized DFA is correct? <span class="text-red-500">*</span>
             </p>
             <div class="space-y-2 text-sm">
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="post_q15" value="By analyzing forward distinguishability over all possible suffixes w in Σ* (future behavior) starting from P0 = {Q \ F, F}, completely ignoring retrospective incoming edge counts." required class="mt-1 text-blue-600" />
-                <span class="ml-2.5 text-slate-700">By analyzing <em>forward distinguishability</em> over all possible suffixes $w \in \Sigma^*$ (future behavior) starting from $P_0 = \{Q \setminus F, F\}$, completely ignoring retrospective incoming edge counts.</span>
+                <input type="radio" name="post_q15" value="It has 3 states (M0, M1, M2); its start state is M0; its accept state is M1 (by forward distinguishability)." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">It has 3 states ($M_0, M_1, M_2$); its start state is $M_0$; its accept state is $M_1$.</span>
               </label>
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="post_q15" value="By reversing all directed edges in the transition graph prior to running partition refinement." required class="mt-1 text-blue-600" />
-                <span class="ml-2.5 text-slate-700">By reversing all directed edges in the transition graph prior to running partition refinement.</span>
+                <input type="radio" name="post_q15" value="It has 5 states, one for each original state." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">It has 5 states, one for each original state.</span>
               </label>
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="post_q15" value="By computing the topological sort of all non-accepting states first." required class="mt-1 text-blue-600" />
-                <span class="ml-2.5 text-slate-700">By computing the topological sort of all non-accepting states first.</span>
+                <input type="radio" name="post_q15" value="Its accept state is M0, because M0 contains the start state." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">Its accept state is $M_0$, because $M_0$ contains the start state.</span>
               </label>
               <label class="flex items-start p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50">
-                <input type="radio" name="post_q15" value="By requiring that all accepting states must have identical in-degrees before partitioning begins." required class="mt-1 text-blue-600" />
-                <span class="ml-2.5 text-slate-700">By requiring that all accepting states must have identical in-degrees before partitioning begins.</span>
+                <input type="radio" name="post_q15" value="Trap disappears in the minimized DFA, leaving 2 states." required class="mt-1 text-blue-600" />
+                <span class="ml-2.5 text-slate-700">$\text{Trap}$ disappears in the minimized DFA, leaving 2 states.</span>
               </label>
             </div>
           </div>
